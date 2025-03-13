@@ -1,0 +1,7 @@
+.idea/
+hw_2/__pycache__/
+hw_1/__pycache__/
+hw_2/.pytest_cache/
+venv/
+.pytest_cache/
+
