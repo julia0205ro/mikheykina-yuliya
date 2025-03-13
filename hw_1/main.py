@@ -56,12 +56,3 @@ def filter_numbers(digit_list: list[int], filter_type: str) -> list[int]:
         return list(filter(lambda x: x % 2 == 0, digit_list))
     else:
         return list(filter(is_prime, digit_list))
-
-
-# проверка кода
-if __name__ == '__main__':
-    print(power_numbers(1, 2, 5, 7))
-    print(is_prime(13))
-    print(filter_numbers([1, 2, 3], ODD))
-    print(filter_numbers([2, 3, 4, 5], EVEN))
-    print(filter_numbers([2, 3, 4, 5], PRIME))
