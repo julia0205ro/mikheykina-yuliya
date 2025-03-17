@@ -12,7 +12,7 @@ def power_numbers(*args: int) -> list:
     <<< [1, 4, 25, 49]
     """
 
-    return list(map(lambda x: x ** 2, args))
+    return [x ** 2 for x in args]
 
 
 # filter types
