@@ -6,8 +6,6 @@ from hw_2.exceptions import CargoOverload
 
 
 class Plane(Vehicle):
-    cargo: int | float = 0
-    max_cargo: int | float = 0
 
     def __init__(self, cargo: int | float, max_cargo: int | float,
                  weight: int, fuel: int | float, fuel_consumption: int | float,

@@ -4,16 +4,13 @@ from hw_2.exceptions import LowFuelError, NotEnoughFuel
 
 
 class Vehicle(ABC):
-    weight: int = 0
-    _started: bool = False
-    fuel: int | float = 0
-    fuel_consumption: int | float = 0
 
-    def __init__(self, weight: int, fuel: int | float,
-                 fuel_consumption: int | float, _started: bool) -> None:
-        self.weight = weight
-        self.fuel = fuel
-        self.fuel_consumption = fuel_consumption
+    def __init__(self, weight: int = 0, fuel: int | float = 0,
+                 fuel_consumption: int | float = 0, started: bool = False) -> None:
+        self._weight = weight
+        self._fuel = fuel
+        self._fuel_consumption = fuel_consumption
+        self._started = started
 
     @property
     def started(self) -> bool:
@@ -23,12 +20,36 @@ class Vehicle(ABC):
     def started(self, value: bool):
         self._started = value
 
+    @property
+    def weight(self) -> int:
+        return self._weight
+
+    @weight.setter
+    def weight(self, value: int):
+        self._weight = value
+
+    @property
+    def fuel(self) -> int | float:
+        return self._fuel
+
+    @fuel.setter
+    def fuel(self, value: int | float):
+        self._fuel = value
+
+    @property
+    def fuel_consumption(self) -> int | float:
+        return self._fuel_consumption
+
+    @fuel_consumption.setter
+    def fuel_consumption(self, value: int | float):
+        self._fuel_consumption = value
+
     def start(self):
         if self._started:
             raise ValueError('Already started')
         else:
             if self.fuel > 0:
-                self._started = True
+                self.started = True
             else:
                 message = 'Insufficient fuel'
                 raise LowFuelError(message)
